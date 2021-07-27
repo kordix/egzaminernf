@@ -155,19 +155,16 @@
     </div>
     <p>To do:</p>
     <ul>
-    <li>ustawienia</li>
+    <!-- <li>ustawienia</li> -->
+      <li>zdania</li>
       <li>wygodne dodawanie tagów</li>
       <li>duplikaty</li>
       <li>synonimy beunruhigen änstigen</li>
-      <li>Counterset ></li>
       <li>tryb auto</li>
-      <li>opcjonalne kategorie</li>
       <li>opcjonalne rodzajniki</li>
       <li>collins babla szukanie</li>
-      <li>odpowiednik w innym języku</li>
       <li>podobne, alfabetycznie</li>
       <li>losowe</li>
-      <li>zdania</li>
       <li>statystyki</li>
       <li>SP-PL PL-SP</li>
     </ul>
