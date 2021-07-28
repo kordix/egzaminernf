@@ -11,6 +11,8 @@ ini_set('mssql.charset', 'UTF-8');
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=$dbname", $user, $pass);
+    $query_run = $dbh->prepare("SET NAMES utf8");
+    $query_run->execute();
 }
 catch(PDOException $exception){
     // http_response_code(400);
