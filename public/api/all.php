@@ -6,7 +6,7 @@ require_once 'db.php';
 
 $dane = json_decode(file_get_contents('php://input'));
 
-$tabela = $dane->tabela;
+#$tabela = $dane->tabela;
 
 class dummy {
 
