@@ -54,6 +54,8 @@ if($_SESSION['zalogowany']){
 <?php include('../components/tester.php') ?>
 <?php include('../components/categoriser.php') ?>
 <?php include('../components/settings.php') ?>
+<?php include('../components/Add.php') ?>
+
 
 
 
