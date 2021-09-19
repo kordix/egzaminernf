@@ -14,7 +14,7 @@ class dummy {
 
 //REPLACE
 try{
-$sth = $dbh->prepare("SELECT * FROM questions q join results r on q.id = r.question_id");
+$sth = $dbh->prepare("SELECT * FROM questions q");
 }catch(Exception $e){
     echo $e->getMessage();
     return http_response_code(500);

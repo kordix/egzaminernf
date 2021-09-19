@@ -15,12 +15,9 @@ let app = new Vue({
         chosentag: {},
         activeobszar: 'egzaminer',
         activeobszar2: 'egzaminer',
+        sentences:0,
 
         settings: {
-            counterset:5,
-            activelanguage: 'DE',
-            currentcategory: 'nieprzypisane',
-            currenttag: ''
         },
         randomset: 'false',
         randomset2: false,
@@ -50,10 +47,19 @@ let app = new Vue({
         },
         getWords(state, data) {
             let self = this;
+            console.log('sentences',self.sentences,typeof(self.sentences) );
+
+            if (self.sentences == 1){
+                self.sentences = '1';
+            }
+            
             this.wordsall = this.wordsall.filter((el) => el.language == self.settings.activelanguage);
+
+            this.words = this.wordsall.filter((el)=>el.sentence == self.sentences);
+
             console.log(self.settings.activelanguage);
-            console.log(this.wordsall);
-            this.words = this.wordsall.filter((el) => el.counter < self.settings.counterset);
+            console.log(this.words);
+            this.words = this.words.filter((el) => el.counter < self.settings.counterset);
             if (this.words.length < 1) { console.log('skończyły się słówka'); self.errors.push('Skończyły się słówka - zmień counter, kategorię albo dodaj nowe'); return };
 
             if (this.settings.currentcategory) {
@@ -66,6 +72,11 @@ let app = new Vue({
                 this.words = this.words.filter((el) => el.tags == self.settings.currenttag)
             }
 
+        },
+        getZdania(){
+            this.$root.sentences = 1;
+            this.getWords();
+            this.getWord();
         },
         getWord() {
             if (this.randomset === 'true') {

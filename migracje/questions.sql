@@ -8,9 +8,13 @@ CREATE TABLE `questions` (
   `rodzajnik` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `fav` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
   `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `counter` int(11) NOT NULL DEFAULT '0',
+  `sentence` bit NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `questions` CHANGE `id` `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
 
 INSERT INTO `questions` (`id`, `question`, `answer`, `language`, `partofspeech`, `tags`, `rodzajnik`, `fav`, `level`, `created_at`, `updated_at`) VALUES
 (1, 'niski', 'bajo', 'SP', 'przymiotnik', 'człowiek', '', '', 'basic', NULL, NULL),

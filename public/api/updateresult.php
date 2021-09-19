@@ -13,7 +13,9 @@ $userid = $dane->userid;
 
 echo 'FAFSDFDFSFDSF';
 
-$query = "UPDATE results SET counter = $counter WHERE question_id = $questionid and `user_id` = $userid";
+//$query = "UPDATE results SET counter = $counter WHERE question_id = $questionid and `user_id` = $userid";
+$query = "UPDATE questions SET counter = $counter WHERE id = $questionid";
+
 echo $query;
 
 $sth = $dbh->prepare($query);

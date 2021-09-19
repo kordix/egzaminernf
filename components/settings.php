@@ -1,4 +1,5 @@
 <script type="text/x-template" id="settings">
+<div>
   <div class="row">
     <div style="display:flex">
     <p style="margin-bottom:0px;line-height:2rem;">Counterset:</p>
@@ -13,13 +14,31 @@
     <button type="button" name="button" @click="reload">Ustaw</button>
     </div>
 
-    <p>Random:  <input type="checkbox" v-model="randomset"></p>
+    <p style="margin-right:20px">Random:  <input type="checkbox" v-model="randomset"></p>
+  <button @click="$root.getZdania">Zdania</button>
+
+    <p></p>
+    <br><br>
 
     <!-- <div class="col-md-4">
              <button class="ikona ikonagerman" :class="{active:activelanguage=='DE'}" @click="setLanguage('DE')"> </button>
              <button class="ikona ikonaspain" :class="{active:activelanguage=='SP'}"  @click="setLanguage('SP')"> </button>
     </div>-->
   </div>
+
+  <div class="row">
+    
+  <!-- <select name="" id="" v-model="$root.settings.tryb">
+      <option value="words">Słówka</option>
+      <option value="sentences">Zdania</option>
+    </select> -->
+    
+
+    <!-- <input type="checkbox" v-model="$root.settings.sentences"> -->
+
+  </div>
+
+</div>
 </script>
 
 <script>
@@ -30,7 +49,8 @@ Vue.component('settings', {
       activeobszar2: "egzaminer",
       countermode: "<",
       counterset: 5,
-      randomset: 0
+      randomset: 0,
+      tryb:'words'
     };
   },
   methods: {

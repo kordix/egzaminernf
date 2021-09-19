@@ -41,8 +41,14 @@
             <label for="tags">Tag:</label>
             <select name="" id="" v-model="chosentag">
                 <option value="nieprzypisane">nieprzypisane</option>
-                <option value="" v-for="tag in tags" :value="tag.name">{{tag.name}}</option>
+                <option value="" v-for="tag in $root.tags" :value="tag.name">{{tag.name}}</option>
             </select>
+        </div>
+
+        <div>
+        <label for="">Zdanie:</label>
+        <input type="checkbox" v-model="sentence"> 
+
         </div>
 
         </div>
@@ -77,6 +83,7 @@ Vue.component('add', {
             answer:'',
             rodzajnik:'',
             tags:[],
+            sentence:false,
             chosentag:'nieprzypisane',
             partofspeech:'nieprzypisane',
             messages:[],
@@ -86,7 +93,7 @@ Vue.component('add', {
     methods:{
         add(){
             let self = this;
-            axios.post('api/add.php',{tabela:'questions',dane:{'question':this.question,'answer':this.answer,'rodzajnik':this.rodzajnik, 'tags':this.chosentag,'partofspeech':this.partofspeech}}).then((res)=>console.log(res));
+            axios.post('api/add.php',{tabela:'questions',dane:{sentence:this.sentence,'question':this.question,'answer':this.answer,'rodzajnik':this.rodzajnik, 'tags':this.chosentag,'partofspeech':this.partofspeech}}).then((res)=>console.log(res));
             this.messages.push('dodano pytanie ('+this.question+') ');
             this.question='';
             this.answer='';
