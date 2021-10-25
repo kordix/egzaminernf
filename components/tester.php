@@ -317,9 +317,13 @@ Vue.component('tester', {
     },
     prev() {
       let elem = this.$root.words
-        .filter((el) => el.counter <= this.$root.counterset)
+        .filter((el) => el.counter <= this.$root.settings.counterset)
         .filter((el) => el.id < this.$root.currentQuestion.id)
         .slice(-1)[0];
+
+
+        console.log(elem);
+
 
       this.errors = [];
       let self = this;
@@ -333,8 +337,10 @@ Vue.component('tester', {
       }
     },
     deleteQuestion() {
+      //self.currentQuestion.question_id
       let self = this;
-      axios.delete(`/delete/${self.currentQuestion.question_id}`);
+      axios.post('/api/delete.php',{id:self.$root.currentQuestion.id,tabela:'questions' }  );
+      console.log('delete');
       this.next();
     },
     focusanswer() {

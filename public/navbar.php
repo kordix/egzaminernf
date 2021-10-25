@@ -26,11 +26,21 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="login.php">Login</a>
                             </li>
-                                <li class="nav-item">
+                                <li class="nav-item" >
                                     <a class="nav-link" href="register.php">Register</a>
                                 </li>
                         </template>
+
+                        <li class="nav-item" style="transform: translateY(20%);">
+                        <select name="" id="" v-model="$root.settings.activelanguage" @change="$root.setLanguage($root.settings.activelanguage)">
+                                    <option value="SP">Hiszpański</option>
+                                    <option value="DE">Niemiecki</option>
+
+                                </select>
+                        </li>
                             <li class="nav-item dropdown" v-if="1==1" @click="wylogujshow = !wylogujshow">
+                            
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <?php echo $_SESSION['login']; ?> <span class="caret"></span>
                                 </a>

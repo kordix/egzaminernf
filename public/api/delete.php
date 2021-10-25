@@ -1,13 +1,13 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] != 'POST') return;
+//if($_SERVER['REQUEST_METHOD'] != 'POST') return;
 
 require_once 'db.php';
 
 $data = json_decode(file_get_contents("php://input"));
 $tabela = $data->tabela;
-$id = $data->id;;
+$id = $data->id;
 
-//replac
+
 $sth = $dbh->prepare("DELETE FROM $tabela WHERE id=$id");
 $sth->execute();
 //

@@ -29,10 +29,10 @@ let app = new Vue({
         this.loadData();
     },
     methods: {
-        setLanguage(lang) {
+        async setLanguage(lang) {
             this.activelanguage = lang;
             let self = this;
-            axios.patch('/updatesetting', { activelanguage: self.activelanguage }).then((res) => location.reload());
+            await axios.patch('/api/update.php', { tabela:'settings', dane:{activelanguage:lang}, id:1 }).then((res) => location.reload());
         },
         async loadData() {
             let self = this;
@@ -53,7 +53,7 @@ let app = new Vue({
                 self.sentences = '1';
             }
             
-            this.wordsall = this.wordsall.filter((el) => el.language == self.settings.activelanguage);
+            this.wordsall = this.wordsall.filter((el) => el.language == self.$root.settings.activelanguage);
 
             this.words = this.wordsall.filter((el)=>el.sentence == self.sentences);
 
@@ -73,6 +73,7 @@ let app = new Vue({
             }
 
         },
+        
         getZdania(){
             this.$root.sentences = 1;
             this.getWords();
