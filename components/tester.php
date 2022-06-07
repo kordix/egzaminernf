@@ -396,6 +396,7 @@ Vue.component('tester', {
     });
   },
   mounted() {
+    console.log('nowy program');
     let self = this;
     setTimeout(() => {
       console.log(this.$root.currentQuestion);
