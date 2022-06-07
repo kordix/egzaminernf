@@ -20,9 +20,9 @@ if (isset($_SESSION['zalogowany'])) {
 
 <div id="app">
 <label for="">Login</label>
-<input type="text" v-model="login">
+<input type="text" v-model="login" id="logininput" @keyup.enter="zaloguj()">
 <label for="">Haslo</label>
-<input type="password" v-model="password">
+<input type="password" v-model="password" @keyup.enter="zaloguj()">
 
 <button @click="zaloguj">Zaloguj</button>
 
@@ -45,6 +45,10 @@ let app = new Vue({
         password:'',
         error:'',
         testdata:''
+    },
+    mounted(){
+        document.getElementById('logininput').focus();
+        document.getElementById('logininput').select();
     },
     methods:{
         test(){
